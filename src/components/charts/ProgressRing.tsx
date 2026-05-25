@@ -30,11 +30,11 @@ export function ProgressRing({
         {value}
       </span>
       <div className="relative">
-        <PieChart width={100} height={100}>
+        <PieChart width={112} height={112}>
           <Pie
             data={data}
-            cx={50}
-            cy={50}
+            cx={56}
+            cy={56}
             startAngle={90}
             endAngle={-270}
             innerRadius={36}
