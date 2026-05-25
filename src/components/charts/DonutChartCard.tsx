@@ -1,4 +1,4 @@
-import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts'
+import { Cell, Pie, PieChart } from 'recharts'
 import { Card } from '../ui/Card'
 
 interface Segment {
@@ -23,25 +23,23 @@ export function DonutChartCard({
   return (
     <Card title={title} className="min-h-[220px]">
       <div className="flex items-center gap-4">
-        <div className="relative h-[140px] w-[140px] shrink-0">
-          <ResponsiveContainer width="100%" height="100%">
-            <PieChart>
-              <Pie
-                data={data}
-                cx="50%"
-                cy="50%"
-                innerRadius={42}
-                outerRadius={62}
-                paddingAngle={3}
-                dataKey="value"
-                stroke="none"
-              >
-                {data.map((entry) => (
-                  <Cell key={entry.name} fill={entry.color} />
-                ))}
-              </Pie>
-            </PieChart>
-          </ResponsiveContainer>
+        <div className="relative shrink-0">
+          <PieChart width={140} height={140}>
+            <Pie
+              data={data}
+              cx={70}
+              cy={70}
+              innerRadius={42}
+              outerRadius={62}
+              paddingAngle={3}
+              dataKey="value"
+              stroke="none"
+            >
+              {data.map((entry) => (
+                <Cell key={entry.name} fill={entry.color} />
+              ))}
+            </Pie>
+          </PieChart>
           <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
             <span className="text-[10px] text-[var(--color-secondary)]">
               {centerLabel}

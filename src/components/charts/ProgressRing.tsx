@@ -1,4 +1,4 @@
-import { Cell, Pie, PieChart, ResponsiveContainer } from 'recharts'
+import { Cell, Pie, PieChart } from 'recharts'
 import { Card } from '../ui/Card'
 
 interface ProgressRingProps {
@@ -29,25 +29,23 @@ export function ProgressRing({
       <span className="mb-3 text-2xl font-bold text-[var(--color-primary)]">
         {value}
       </span>
-      <div className="relative h-[100px] w-[100px]">
-        <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
-            <Pie
-              data={data}
-              cx="50%"
-              cy="50%"
-              startAngle={90}
-              endAngle={-270}
-              innerRadius={36}
-              outerRadius={48}
-              dataKey="value"
-              stroke="none"
-            >
-              <Cell fill={color} />
-              <Cell fill="var(--color-border-subtle)" />
-            </Pie>
-          </PieChart>
-        </ResponsiveContainer>
+      <div className="relative">
+        <PieChart width={100} height={100}>
+          <Pie
+            data={data}
+            cx={50}
+            cy={50}
+            startAngle={90}
+            endAngle={-270}
+            innerRadius={36}
+            outerRadius={48}
+            dataKey="value"
+            stroke="none"
+          >
+            <Cell fill={color} />
+            <Cell fill="var(--color-border-subtle)" />
+          </Pie>
+        </PieChart>
         {trend && (
           <span
             className="absolute inset-0 flex items-center justify-center text-xs font-semibold"

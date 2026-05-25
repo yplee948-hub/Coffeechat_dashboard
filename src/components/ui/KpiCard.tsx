@@ -5,7 +5,7 @@ interface KpiCardProps {
   label: string
   value: number | string
   icon: LucideIcon
-  trend?: { value: string; positive: boolean }
+  trend?: { value: string; positive: boolean; label?: string }
   highlight?: 'default' | 'warning' | 'danger' | 'success'
 }
 
@@ -43,16 +43,21 @@ export function KpiCard({
           {value}
         </span>
         {trend && (
-          <span
-            className={cn(
-              'mb-1 rounded-lg px-2 py-0.5 text-xs font-semibold',
-              trend.positive
-                ? 'bg-[#DCFCE7] text-[#15803D] dark:bg-[#052e16] dark:text-[#86EFAC]'
-                : 'bg-[#FEE2E2] text-[#DC2626] dark:bg-[#450a0a] dark:text-[#FCA5A5]',
-            )}
-          >
-            {trend.positive ? '↑' : '↓'} {trend.value}
-          </span>
+          <div className="mb-1 flex flex-col items-end gap-0.5">
+            <span
+              className={cn(
+                'rounded-lg px-2 py-0.5 text-xs font-semibold',
+                trend.positive
+                  ? 'bg-[#DCFCE7] text-[#15803D] dark:bg-[#052e16] dark:text-[#86EFAC]'
+                  : 'bg-[#FEE2E2] text-[#DC2626] dark:bg-[#450a0a] dark:text-[#FCA5A5]',
+              )}
+            >
+              {trend.positive ? '↑' : '↓'} {trend.value}
+            </span>
+            <span className="text-[10px] text-[var(--color-secondary)] opacity-60">
+              {trend.label ?? 'vs last month'}
+            </span>
+          </div>
         )}
       </div>
     </div>
