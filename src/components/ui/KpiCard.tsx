@@ -24,8 +24,8 @@ export function KpiCard({
   highlight = 'default',
 }: KpiCardProps) {
   return (
-    <div className="card-surface flex flex-col gap-3 p-5">
-      <div className="flex items-center justify-between">
+    <div className="card-surface p-5">
+      <div className="mb-3 flex items-center justify-between">
         <span className="text-[13px] font-medium text-[var(--color-secondary)]">
           {label}
         </span>
@@ -38,28 +38,28 @@ export function KpiCard({
           <Icon className="h-[17px] w-[17px]" strokeWidth={1.75} />
         </div>
       </div>
-      <span className="text-[34px] font-bold leading-none tracking-tight text-[var(--color-primary)]">
+      <span className="block text-[34px] font-bold leading-none tracking-tight text-[var(--color-primary)]">
         {value}
       </span>
-      {trend ? (
-        <div className="flex items-center gap-1.5">
-          <span
-            className={cn(
-              'rounded-lg px-2 py-0.5 text-xs font-semibold',
-              trend.positive
-                ? 'bg-[#DCFCE7] text-[#15803D] dark:bg-[#052e16] dark:text-[#86EFAC]'
-                : 'bg-[#FEE2E2] text-[#DC2626] dark:bg-[#450a0a] dark:text-[#FCA5A5]',
-            )}
-          >
-            {trend.positive ? '↑' : '↓'} {trend.value}
-          </span>
-          <span className="text-[10px] text-[var(--color-secondary)] opacity-60">
-            {trend.label ?? 'vs last month'}
-          </span>
-        </div>
-      ) : (
-        <div className="h-[22px]" />
-      )}
+      <div className="mt-3 flex h-5 items-center gap-1.5">
+        {trend && (
+          <>
+            <span
+              className={cn(
+                'rounded-lg px-2 py-0.5 text-xs font-semibold',
+                trend.positive
+                  ? 'bg-[#DCFCE7] text-[#15803D] dark:bg-[#052e16] dark:text-[#86EFAC]'
+                  : 'bg-[#FEE2E2] text-[#DC2626] dark:bg-[#450a0a] dark:text-[#FCA5A5]',
+              )}
+            >
+              {trend.positive ? '↑' : '↓'} {trend.value}
+            </span>
+            <span className="text-[10px] text-[var(--color-secondary)] opacity-60">
+              {trend.label ?? 'vs last month'}
+            </span>
+          </>
+        )}
+      </div>
     </div>
   )
 }
