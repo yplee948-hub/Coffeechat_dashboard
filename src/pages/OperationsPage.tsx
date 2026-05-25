@@ -3,6 +3,7 @@ import {
   CheckCircle2,
   ClipboardList,
   Mail,
+  Send,
   UserPlus,
 } from 'lucide-react'
 import { ActionQueueTable } from '../components/ActionQueueTable'
@@ -44,7 +45,7 @@ export function OperationsPage() {
             <KpiCard
               label="Need intro email"
               value={data.kpiSummary.needIntroEmail}
-              icon={Mail}
+              icon={Send}
               highlight="warning"
             />
             <KpiCard
