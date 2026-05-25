@@ -1,6 +1,11 @@
+/**
+ * Demo data synced with Figma Operations frame (1:2).
+ * @see https://www.figma.com/design/bwToZ3mUO9Yyx7mKtJuiIE
+ */
 import type { DashboardData } from './computeMetrics'
 import type { CoffeeChatRequest } from './types'
 
+/** Seven action-queue rows shown in Figma (manager attention). */
 const actionQueue: CoffeeChatRequest[] = [
   {
     id: 'CC-2025-104',
@@ -73,20 +78,6 @@ const actionQueue: CoffeeChatRequest[] = [
     dueDate: '2026-05-12',
   },
   {
-    id: 'CC-2025-082',
-    addedDate: '2026-05-14',
-    prospectName: 'Morgan Patel',
-    email: 'm.patel@uw.edu',
-    requestType: 'Current Student',
-    contactMethod: 'Email',
-    responsibleManager: 'Youngpyung Lee',
-    assignedAmbassador: 'Euphie Zhao',
-    status: 'Intro Email Sent',
-    actionNeeded: 'No Action Needed',
-    priority: 'Low',
-    dueDate: null,
-  },
-  {
     id: 'CC-2025-079',
     addedDate: '2026-05-12',
     prospectName: 'Sam Okafor',
@@ -129,7 +120,7 @@ export const demoDashboardData: DashboardData = {
     introEmailsSent: 84,
     feedbackSentNotReceived: 9,
   },
-  actionQueue: actionQueue.filter((r) => r.actionNeeded !== 'No Action Needed'),
+  actionQueue,
   requestTypeBreakdown: [
     { name: 'Current Student', value: 48, color: '#3B6FF5' },
     { name: 'Alumni', value: 35, color: '#8B5CF6' },

@@ -11,6 +11,11 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173).
 
+## Live demo
+
+- **Vercel:** [coffeechat-dashboard](https://coffeechat-dashboard-yplee948-hubs-projects.vercel.app)
+- **Figma:** [Coffee Chat Dashboard - Operations](https://www.figma.com/design/bwToZ3mUO9Yyx7mKtJuiIE)
+
 ## Demo features
 
 - **Operations** — KPI cards, action-needed queue, feedback follow-up, ambassador workload
